@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KRMU Traffic AI Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #eef2f3; text-align: center; margin: 0; padding: 20px; }
+        h1 { color: #004080; margin-bottom: 5px;}
+        h3 { color: #555; margin-top: 0; }
+        .dashboard { display: flex; justify-content: center; margin-top: 20px; }
+        .video-container { border: 5px solid #222; border-radius: 8px; overflow: hidden; box-shadow: 0px 8px 16px rgba(0,0,0,0.3); background: #000; }
+        img { max-width: 100%; height: auto; display: block; }
+        .status-panel { margin-top: 30px; padding: 20px; background: white; border-radius: 8px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: left;}
+    </style>
+</head>
+<body>
+  
+  
+    <div class="dashboard">
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" width="800" height="450" alt="Live AI Camera Feed"
+                 loading="lazy" onerror="this.alt='Video feed unavailable — is the server running?'">
+        </div>
+    </div>
+
+    <div class="status-panel">
+        <h2 style="margin-top: 0;">System Diagnostics</h2>
+        <p>🔴 Live Engine: <b>YOLOv8 Nano (Active)</b></p>
+        <p>🟢 Data Persistence: <b>SQLite Database (Logging)</b></p>
+        <p>⚡ Infrastructure: <b>Multi-threaded Flask Server</b></p>
+    </div>
+</body>
+</html>
